@@ -117,7 +117,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass (= 2.0.4)
+  bootstrap-sass
   bootstrap-will_paginate (= 0.0.6)
   bson_ext
   coffee-rails (~> 3.2.1)
