@@ -1,4 +1,6 @@
 HeatherShirts::Application.routes.draw do
+  get "store/index"
+
   resources :products
 
   root :to => "static_pages#home"
