@@ -1,4 +1,7 @@
 HeatherShirts::Application.routes.draw do
+  get "checkout/payment"
+  post "checkout/payment"
+
   get "store/index"
 
   resources :products

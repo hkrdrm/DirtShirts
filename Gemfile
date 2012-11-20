@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
+gem 'stripe'
 gem "mongo_mapper"
 gem 'bson_ext'
 gem 'bootstrap-sass'

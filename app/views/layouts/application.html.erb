@@ -6,6 +6,11 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
+  <script type="text/javascript" src="https://js.stripe.com/v1/"></script>
+  <script type="text/javascript">
+    // this identifies your website in the createToken call below
+    Stripe.setPublishableKey('pk_test_NH9lqc3lW9dqcCd37Gd0yrTM');
+  </script>
 </head>
 <body>
   <%= render 'layouts/header' %>
