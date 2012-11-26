@@ -5,6 +5,7 @@ HeatherShirts::Application.routes.draw do
   get "store/index"
 
   resources :products
+  resources :store
 
   root :to => "static_pages#home"
 
@@ -12,7 +13,7 @@ HeatherShirts::Application.routes.draw do
   get "static_pages/home"
   get "store/index"
   post "store/add_to_cart"
-  post "store/clear_session"
+  post "store/empty_cart"
   get "static_pages/contact"
   # The priority is based upon order of creation:
   # first created -> highest priority.
