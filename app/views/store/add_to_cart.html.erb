@@ -1,8 +1,16 @@
 <h1>Your Cart Items</h1>
-<ul>
+<table border='1px'>
+  <th>Quantity</th>
+  <th>Product</th>
+  <th>Price</th>
   <% for cart_item in @cart.items %>
-    <li><%= cart_item.quantity %> &times; <%= h(cart_item.title) %></li>
+  <tr>
+    <td><%= cart_item.quantity %></td> <td><%= h(cart_item.title) %></td> <td align='right'><%= number_to_currency(cart_item.price * cart_item.quantity) %></td>
+  </tr>
   <% end %>
-</ul>
+  <tr>
+    <td colspan='2' align='right'>Total</td> <td align='right'><%= number_to_currency(@cart.total_price) %></td>
+  </tr>
+</table>
 
 <%= button_to "Empty cart", :action => :empty_cart %>
