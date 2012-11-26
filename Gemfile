@@ -4,6 +4,8 @@ gem 'rails', '3.2.8'
 gem 'stripe'
 gem "mongo_mapper"
 gem 'bson_ext'
+gem 'mongoid', '~> 2.0'
+gem 'mongoid_session_store'
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate', '0.0.6'
 

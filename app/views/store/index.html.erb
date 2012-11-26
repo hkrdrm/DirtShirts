@@ -1,2 +1,25 @@
-<h1>Store</h1>
-<script src="https://www-sgw-opensocial.googleusercontent.com/gadgets/ifr?url=https%3A%2F%2Fstoregadgetwizard.appspot.com%2Fservlets%2FgadgetServlet%3Fkey%3D0ArN5ZFwdgREGdDVYVVNxdkJ6SVc5TUxjYVI4WlJMbXc%26mid%3D959242173670134%26currency%3DUSD%26sandbox%3Dfalse%26gadget%3DLARGE&amp;container=storegadgetwizard&amp;w=800&amp;h=500&amp;title=&amp;brand=none&amp;output=js"></script>
+<h1>Listing products</h1>
+
+<table width="100%">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Photo</th>
+    <th></th>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.title %></td>
+    <td><%= product.description %></td>
+    <td><%= product.price %></td>
+    <td><img src="<%= product.photo %>" width="100px" height="100px"</td>
+    <td><%= button_to "Add to Cart", :action => :add_to_cart, :id => product %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product', new_product_path %>

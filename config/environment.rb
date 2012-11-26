@@ -3,3 +3,5 @@ require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
 HeatherShirts::Application.initialize!
+
+# Store Sessions in mong
