@@ -14,6 +14,7 @@ HeatherShirts::Application.routes.draw do
   get "store/index"
   post "store/add_to_cart"
   post "store/empty_cart"
+  post "checkout/empty_cart"
   get "static_pages/contact"
   # The priority is based upon order of creation:
   # first created -> highest priority.
