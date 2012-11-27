@@ -3,11 +3,8 @@
   <th>Quantity</th>
   <th>Product</th>
   <th>Price</th>
-  <% for cart_item in @cart.items %>
-  <tr>
-    <td><%= cart_item.quantity %></td> <td><%= h(cart_item.title) %></td> <td align='right'><%= number_to_currency(cart_item.price * cart_item.quantity) %></td>
-  </tr>
-  <% end %>
+
+  <%= render(:partial => "cart_item", :collection => @cart.items) %>
   <tr>
     <td colspan='2' align='right'>Total</td> <td align='right'><%= number_to_currency(@cart.total_price) %></td>
   </tr>
