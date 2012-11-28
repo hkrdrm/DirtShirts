@@ -1,0 +1,13 @@
+<table border='1px'>
+  <th>Quantity</th>
+  <th>Product</th>
+  <th>Price</th>
+  
+  <%= render(:partial => "/store/cart_item", :collection => @cart.items) %>
+
+  <tr>
+    <td colspan="2">Total</td>
+    <td><%= number_to_currency(@cart.total_price) %></td>
+  </tr>
+</table>
+

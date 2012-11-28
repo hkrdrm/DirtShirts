@@ -1,13 +1,3 @@
 <h1>Your Cart Items</h1>
-<table border='1px'>
-  <th>Quantity</th>
-  <th>Product</th>
-  <th>Price</th>
 
-  <%= render(:partial => "cart_item", :collection => @cart.items) %>
-  <tr>
-    <td colspan='2' align='right'>Total</td> <td align='right'><%= number_to_currency(@cart.total_price) %></td>
-  </tr>
-</table>
-
-<%= button_to "Empty cart", :action => :empty_cart %>
+  <%= render(:partial => "/store/cart") %>
