@@ -19,24 +19,32 @@
 
 <h1>Checkout</h1>
 <div class=".payment-errors"></div>
-
-<form action="payment" method="post" id="stripe-form">
-    <div class="formset">
+<table width="100%">
+  <tr>
+    <td> <%= render(:partial => "store/cart") %> </td>
+  </tr>
+  <tr>
+    <td>
+    <form action="payment" method="post" id="stripe-form">
+      <div class="formset">
         <label>Card Number</label>
         <input type="text" size="20" autocomplete="off" class="credit-number" />
-    </div>
+      </div>
 
-    <div class="formset">
+      <div class="formset">
         <label>Security Code/CVC</label>
         <input type="text" size="4" autocomplete="off" class="credit-scurity" />
-    </div>
+      </div>
 
-    <div class="formset">
+      <div class="formset">
         <label>Expiration (MM/YYYY)</label>
         <input type="text" size="2" class="card-expiry-month"/>
         <span> / </span>
         <input type="text" size="4" class="card-expiry-year"/>
-    </div>
+      </div>
 
-    <button type="submit" class="submit">Submit Payment</button>
-</form>
+      <button type="submit" class="submit">Submit Payment</button>
+    </form>
+    </td>
+  </tr>
+</table>

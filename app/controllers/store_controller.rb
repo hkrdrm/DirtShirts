@@ -1,7 +1,7 @@
 class StoreController < ApplicationController
   def index
     @products = Product.all
-
+    @cart = find_cart
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @products }
@@ -17,6 +17,7 @@ class StoreController < ApplicationController
     else
       @cart = find_cart
       @cart.add_product(product)
+      #redirect_to_index
     end
   end
 
@@ -28,8 +29,8 @@ class StoreController < ApplicationController
 
   private 
 
-    def redirect_to_index(msg)
-      flash[:notice] = msg
+    def redirect_to_index(msg = nil)
+      flash[:notice] = msg if msg
       redirect_to :action => :index
     end
 
