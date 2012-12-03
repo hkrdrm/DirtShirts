@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# A comment
+
 gem 'rails', '3.2.8'
 gem 'rake', '10.0.2'
 gem 'stripe'
