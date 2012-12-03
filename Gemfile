@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
+gem 'rake', '10.0.2'
 gem 'stripe'
 gem "mongo_mapper"
 gem 'bson_ext'
-gem 'mongoid', '~> 2.0'
+gem 'mongoid', '2.4.8'
 gem 'mongoid_session_store'
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate', '0.0.6'

@@ -1,8 +1,10 @@
 HeatherShirts::Application.routes.draw do
   get "checkout/payment"
   post "checkout/payment"
+  match '/' => 'static_pages#home'
 
   get "store/index"
+  get "54.245.118.77/store"
 
   resources :products
   resources :store
