@@ -9,6 +9,7 @@ gem "mongo_mapper"
 gem 'bson_ext'
 gem 'mongoid', '2.4.8'
 gem 'mongoid_session_store'
+gem 'less-rails-bootstrap'
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'devise'
