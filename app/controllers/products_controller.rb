@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
+  before_filter :authorize
   def index
     @products = Product.all
     respond_to do |format|
@@ -79,4 +80,10 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  protected
+    def authorize
+      if !user_signed_in?
+        redirect_to "/static_pages/home"
+      end
+    end
 end
