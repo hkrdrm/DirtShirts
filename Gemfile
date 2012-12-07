@@ -7,10 +7,14 @@ gem 'rake', '10.0.2'
 gem 'stripe'
 gem "mongo_mapper"
 gem 'bson_ext'
+<<<<<<< Updated upstream
 gem 'mongoid', '2.4.8'
 gem 'mongoid_session_store'
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate', '0.0.6'
+=======
+gem 'bootstrap-sass', '>= 2.1.0.0'
+>>>>>>> Stashed changes
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
