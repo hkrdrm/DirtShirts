@@ -1,4 +1,6 @@
 HeatherShirts::Application.routes.draw do
+  get "dashboard/index"
+
   get "checkout/payment"
   post "checkout/payment"
   match '/' => 'static_pages#home'
