@@ -6,10 +6,20 @@
       <nav>
         <ul class="nav pull-right">
 	  <li><%= link_to "Home",	'/static_pages/home' %></li>
-	  <li><%= link_to "Products",	'/products' %></li>
 	  <li><%= link_to "Store",	'/store/index' %></li>
 	  <li><%= link_to "Checkout",	'/checkout/payment' %></li>
 	  <li><%= link_to "Contact",	'/static_pages/contact' %></li>
+
+	  <% if user_signed_in? %>
+	    <li class="dropdown">
+	      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= current_user.email %><b class="caret"></b></a>
+	      <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
+	        <%= render 'shared/navigation' %>
+	      </ul>
+	    </li>
+	  <% else %>
+	    <li><%= link_to('Login', new_user_session_path) %></li>
+	  <% end %>
 	</ul>
       </nav>
     </div>
