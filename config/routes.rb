@@ -14,6 +14,7 @@ HeatherShirts::Application.routes.draw do
   resources :products
   resources :store
   resources :checkout
+  resources :orders
 
   root :to => "static_pages#home"
 
