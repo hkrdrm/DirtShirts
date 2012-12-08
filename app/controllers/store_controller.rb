@@ -1,4 +1,5 @@
 class StoreController < ApplicationController
+
   def checkout
     @cart = find_cart
     if @cart.items.empty?

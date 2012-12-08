@@ -1,10 +1,20 @@
 <h1>orders</h1>
-<table>
+<table border='1px solid black'>
+<th>Name:</th>
+<th>Address:</th>
+<th>Email:</th>
 <% @orders.each do |order| %>
 <tr>
-  <td><%= order.name %></td>
+  <td><%= link_to order.name, order %></td>
   <td><%= order.address %></td>
   <td><%= order.email %></td>
 </tr>
+  <% order.line_items.each do |li| %>
+  <tr>
+    <td><%= li.title %></td>
+    <td><%= li.quantity %></td>
+    <td><%= li.total_price %></td>
+  </tr>
+  <% end %>
 <% end %>
 </table>

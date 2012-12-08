@@ -14,6 +14,10 @@ class CartItem
     @product.title
   end
 
+  def photo
+    @product.photo
+  end
+
   def price
     @product.price * @quantity
   end

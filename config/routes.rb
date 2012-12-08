@@ -1,20 +1,23 @@
 HeatherShirts::Application.routes.draw do
   devise_for :users
 
-  get "dashboard/index"
+  get "admin/dashboard/index"
 
   get "checkout/payment"
   post "checkout/payment"
   match '/' => 'static_pages#home'
-  match 'checkout' => 'store#checkout'
 
+  post "orders/destroy"
+  post "checkout/save_order"
   get "store/index"
   get "54.245.118.77/store"
+  get "checkout/index"
 
   resources :products
   resources :store
   resources :checkout
   resources :orders
+  resources :admin
 
   root :to => "static_pages#home"
 
