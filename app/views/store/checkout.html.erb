@@ -1,0 +1,21 @@
+
+<fieldset>
+  <legend>Please Enter Your Details</legend>
+
+  <% form_for :order, :url => { :action => :save_order } do |form| %>
+    <p>
+      <label for="order_name">Name:</label>
+      <%= form.text_field :name, :size => 40 %>
+    </p>
+
+    <p>
+      <label for="order_address">Address:</label>
+      <%= form.text_field :name, :rows => 3, :cols => 40 %>
+    </p>
+    <p>
+      <label for="order_email">Email:</label>
+      <%= form.text_field :email, :size => 40 %>
+    </p>
+    <%= submit_tag "Place Order", :class => "submit" %>
+    <% end %>
+</fieldset>

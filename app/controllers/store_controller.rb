@@ -1,4 +1,12 @@
 class StoreController < ApplicationController
+  def checkout
+    @cart = find_cart
+    if @cart.items.empty?
+      redirect_to_index("Your cart is empty.")
+    else
+      @order = Order.new
+    end
+  end
   def index
     @products = Product.all
     @cart = find_cart
@@ -8,6 +16,14 @@ class StoreController < ApplicationController
     end
   end
 
+  def show
+    @products = Product.all
+    @cart = find_cart
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @products }
+    end
+  end
   def add_to_cart
     begin
       product = Product.find(params[:id])

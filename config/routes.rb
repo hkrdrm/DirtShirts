@@ -6,12 +6,14 @@ HeatherShirts::Application.routes.draw do
   get "checkout/payment"
   post "checkout/payment"
   match '/' => 'static_pages#home'
+  match 'checkout' => 'store#checkout'
 
   get "store/index"
   get "54.245.118.77/store"
 
   resources :products
   resources :store
+  resources :checkout
 
   root :to => "static_pages#home"
 
@@ -20,6 +22,8 @@ HeatherShirts::Application.routes.draw do
   get "store/index"
   post "store/add_to_cart"
   post "store/empty_cart"
+  get "store/checkout"
+  post "store/checkout"
   post "checkout/empty_cart"
   get "static_pages/contact"
   # The priority is based upon order of creation:
