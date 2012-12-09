@@ -1,14 +1,22 @@
-<h1>orders</h1>
-<table width="100%" border='1px solid black'>
-<th>Name:</th>
-<th>Address:</th>
-<th>Email:</th>
+<h1>Orders</h1>
+<p> Click Rows for more detailed information. </p>
 <% @orders.each do |order| %>
-<tr>
-  <td><%= link_to order.name, order %></td>
-  <td><%= order.address %></td>
-  <td><%= order.email %></td>
-</tr>
+<div class="name" style="border: 1px solid black;">
+  <table width='100%' border='1px solid black'>
+  <th width='30%'>Name:</th>
+  <th width='50%'>Address:</th>
+  <th width='20%'>Email:</th>
+  <tr>
+    <td><%= order.name %></td>
+    <td><%= order.address %></td>
+    <td><%= order.email %></td>
+ </tr> 
+ </table>
+  <div class="items" style="display: none;">
+  <table width='100%' border='1px solid black'>
+  <th width='30%'>Product</th>
+  <th width='50%'>Quantity</th>
+  <th width='20%'>Total Price</th>
   <% order.line_items.each do |li| %>
   <tr>
     <td><%= li.title %></td>
@@ -16,5 +24,18 @@
     <td><%= li.total_price %></td>
   </tr>
   <% end %>
+  </table>
+  </div>
+</div>
+<br>
 <% end %>
-</table>
+  <script>
+    $('div.name').click(function(){
+      if($(this).children('div.items').is(":hidden")){
+        $(this).children('div.items').slideDown("slow");
+      }
+      else{
+	$(this).children('div.items').hide();
+      }
+    });
+  </script>
