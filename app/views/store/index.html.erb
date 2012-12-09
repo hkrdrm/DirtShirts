@@ -15,7 +15,7 @@
     <td><%= product.description %></td>
     <td><%= number_to_currency(product.price) %></td>
     <td><img src="<%= product.photo %>" width="100px" height="100px"</td>
-    <td><%= button_to "Add to Cart", :action => :cart, :id => product %></td>
+    <td><%= button_to "Add to Cart", :action => :add_to_cart, :id => product %></td>
   </tr>
 <% end %>
 </table>
