@@ -1,0 +1,50 @@
+<script>
+  $(document).ready(function() {
+  $("#payment-form").submit(function(event) {
+    // disable the submit button to prevent repeated clicks
+    $('.submit-button').attr("disabled", "disabled");
+
+    Stripe.createToken({
+        number: $('.card-number').val(),
+        cvc: $('.card-cvc').val(),
+        exp_month: $('.card-expiry-month').val(),
+        exp_year: $('.card-expiry-year').val()
+    }, stripeResponseHandler);
+
+    // prevent the form from submitting with the default action
+    return false;
+  });
+});
+</script>
+
+<h1>Checkout</h1>
+<div class=".payment-errors"></div>
+<table width="100%">
+  <tr>
+    <td> <%= render(:partial => "store/cart") %> </td>
+  </tr>
+  <tr>
+    <td>
+    <form action="payment" method="post" id="stripe-form">
+      <div class="formset">
+        <label>Card Number</label>
+        <input type="text" size="20" autocomplete="off" class="credit-number" />
+      </div>
+
+      <div class="formset">
+        <label>Security Code/CVC</label>
+        <input type="text" size="4" autocomplete="off" class="credit-scurity" />
+      </div>
+
+      <div class="formset">
+        <label>Expiration (MM/YYYY)</label>
+        <input type="text" size="2" class="card-expiry-month"/>
+        <span> / </span>
+        <input type="text" size="4" class="card-expiry-year"/>
+      </div>
+
+      <button type="submit" class="submit">Submit Payment</button>
+    </form>
+    </td>
+  </tr>
+</table>
