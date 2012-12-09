@@ -1,38 +1,5 @@
-<h1>Checkout</h1>
-<fieldset>
-<legend>Please enter all your details</legend>
-<%= form_for :order, :url => { :action => :save_order } do |form| %>
-  <p>
-    <label for="order_name">Name:</label>
-    <%= form.text_field :name, :size => 40 %>
-  </p>
-  <p>
-    <label for="order_address">Address:</label>
-    <%= form.text_field :address, :size => 40 %>
-  </p>
-  <p>
-    <label for="order_address2">Address Line2:</label>
-    <%= form.text_field :address2, :size => 40 %>
-  </p>
-  <p>
-    <label for="order_city">City:</label>
-    <%= form.text_field :city, :size => 40 %>
-  </p>
-  <p>
-    <label for="order_state">State:</label>
-    <%= form.text_field :state, :size => 40 %>
-  </p>
-  <p>
-    <label for="order_zipcode">Zipcode:</label>
-    <%= form.text_field :zipcode, :size => 40 %>
-  </p>
-  <p>
-    <label for="order_country">Country:</label>
-    <%= form.text_field :country, :size => 40 %>
-  </p>
-  <p>
-    <label for="order_email">Email:</label>
-    <%= form.text_field :email, :size => 40 %>
-  </p>
-  <%= submit_tag "Place Order", :class => "submit" %>
-<% end %>
+<%= render 'checkout/paymentNavBar' %>
+<p>
+  Sign up for a free account to checkout it only takes seconds.
+</p>
+
