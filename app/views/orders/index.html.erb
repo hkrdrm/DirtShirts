@@ -3,12 +3,23 @@
 <% @orders.each do |order| %>
 <div class="name" style="border: 1px solid black;">
   <table width='100%' border='1px solid black'>
-  <th width='30%'>Name:</th>
-  <th width='50%'>Address:</th>
-  <th width='20%'>Email:</th>
+  <th width='10%'>Name:</th>
+  <th width='10%'>Address:</th>
+  <th width='10%'>Address2:</th>
+  <th width='10%'>City:</th>
+  <th width='10%'>State:</th>
+  <th width='10%'>Zipcode:</th>
+  <th width='10%'>Country:</th>
+  <th width='10%'>Email:</th>
+
   <tr>
-    <td><%= order.name %></td>
+    <td><%= link_to order.name, order %></td>
     <td><%= order.address %></td>
+    <td><%= order.address2 %></td>
+    <td><%= order.city %></td>
+    <td><%= order.state %></td>
+    <td><%= order.zipcode %></td>
+    <td><%= order.country %></td>
     <td><%= order.email %></td>
  </tr> 
  </table>
