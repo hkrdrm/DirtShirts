@@ -5,6 +5,11 @@ class Order
 
   field :name, :type => String
   field :address, :type => String
+  field :address2, :type => String
+  field :city, :type => String
+  field :state, :type => String
+  field :zipcode, :type => Integer 
+  field :country, :type => String
   field :email, :type => String
 
 
