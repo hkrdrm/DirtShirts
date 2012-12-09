@@ -1,6 +1,4 @@
 HeatherShirts::Application.routes.draw do
-  resources :shopping_carts
-
   devise_for :users
 
   get "admin/dashboard/index"
