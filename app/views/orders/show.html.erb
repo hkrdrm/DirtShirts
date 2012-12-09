@@ -16,14 +16,6 @@
   <b>Delete Order:</b>
   <%= link_to image_tag("deleteIcon.png", :width => 50, :height => 50), @order, method: :delete, data: { confirm: 'Are you sure?' } %>
 </p>
-<p>
-  <b>Edit Order:</b>
-  <%= link_to image_tag("deleteIcon.png", :width => 50, :height => 50), edit_order_path(@order) %>
-</p>
-<p>
-  <b>Ship Order:</b>
-  <%= link_to image_tag("shipOrder.jpeg", :width => 50, :height => 50), @order, action: "/orders/ship_order#:order" %>
-</p>
 <table border='1px solid black' width='100%'>
   <th>Photo:</th>
   <th>Product:</th>
