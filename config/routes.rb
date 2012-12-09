@@ -3,15 +3,21 @@ HeatherShirts::Application.routes.draw do
 
   get "admin/dashboard/index"
 
+  get "checkout/index"
+  post "checkout/index"
   get "checkout/payment"
   post "checkout/payment"
   match '/' => 'static_pages#home'
+  match '/orders/:id/edit', :to => 'orders#edit'
+  match 'ship_order', :to => 'orders#ship'
 
   post "orders/destroy"
   post "checkout/save_order"
   get "store/index"
   get "54.245.118.77/store"
-  get "checkout/index"
+  get "orders/:id/edit"
+  post "orders/edit"
+  post "orders/:id/edit"
 
   resources :products
   resources :store
@@ -25,6 +31,7 @@ HeatherShirts::Application.routes.draw do
   get "static_pages/home"
   get "store/index"
   post "store/add_to_cart"
+  post "store/cart"
   post "store/empty_cart"
   get "store/checkout"
   post "store/checkout"

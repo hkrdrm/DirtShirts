@@ -34,7 +34,7 @@ class StoreController < ApplicationController
     else
       @cart = find_cart
       @cart.add_product(product)
-      #redirect_to_index
+     # redirect_to_index("Product Added")
     end
   end
 
@@ -42,7 +42,10 @@ class StoreController < ApplicationController
     session[:cart] = nil
     redirect_to_index("Your cart is currently empty")
   end
-
+  def cart
+    @cart = find_cart
+    @items = @cart.items
+  end
 
   private 
 

@@ -2,7 +2,7 @@
   <th>Quantity</th>
   <th>Product</th>
   <th>Price</th>
-  <% @items.each do |item| %>
+<% @items.each do |item| %>
 <tr>
   <td><%= item.quantity %></td>
   <td><%= h(item.title) %></td>
@@ -15,6 +15,6 @@
     <td><%= number_to_currency(@cart.total_price) %></td>
   </tr>
 </table>
-<%= button_to "Checkout", :url => "/checkout/index" %>
+<%= button_to "Checkout", :method => "/checkout/index" %>
 <%= button_to "Empty Cart", :action => :empty_cart %>
 
