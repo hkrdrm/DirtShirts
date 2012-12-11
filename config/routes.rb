@@ -5,9 +5,15 @@ HeatherShirts::Application.routes.draw do
 
   get "checkout/payment"
   post "checkout/payment"
+  get "checkout/s1_shipping"
+  post "checkout/s1_shipping"
   match '/' => 'static_pages#home'
 
   post "orders/destroy"
+  post "orders/show"
+  post "orders/ship"
+  get "orders/ship"
+  get "orders/:id/ship"
   post "checkout/save_order"
   get "store/index"
   get "54.245.118.77/store"

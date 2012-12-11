@@ -3,6 +3,7 @@ class CheckoutController < ApplicationController
   def save_order
     @cart = find_cart
     @order = Order.new(params[:order])
+    @order.username = current_user.email
     @order.add_line_items_from_cart(@cart)
     if @order.save
       session[:cart] = nil

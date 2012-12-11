@@ -26,6 +26,16 @@ class OrdersController < ApplicationController
       format.json
     end
   end
+  def ship
+    @order = Order.find(params[:id])
+    @order.shipped = true
+    @order.save
+
+    respond_to do |format|
+      format.html { redirect_to '/orders' }
+      format.json
+    end
+  end
   protected
     def authorize
       if !user_signed_in?
