@@ -1,13 +1,9 @@
 HeatherShirts::Application.routes.draw do
   get "users/index"
   devise_for :users
+  get "checkout/index"
 
-  resources :users
-  resources :products
-  resources :store
-  resources :checkout
-  resources :orders
-  resources :admin
+  get "store/index"
 
 
   get "checkout/payment"
@@ -22,25 +18,29 @@ HeatherShirts::Application.routes.draw do
   post "orders/destroy"
   post "orders/show"
   post "orders/ship"
-  get "orders/ship"
-  get "orders/:id/ship"
+  match "/orders/:id/ship", :to => 'orders#ship', :as => :ship_path
+  post "orders/:id/ship"
   post "checkout/save_order"
   get "store/index"
   get "54.245.118.77/store"
-  get "checkout/index"
 
 
   root :to => "static_pages#home"
 
 
   get "static_pages/home"
-  get "store/index"
   post "store/add_to_cart"
   post "store/empty_cart"
   get "store/checkout"
   post "store/checkout"
   post "checkout/empty_cart"
   get "static_pages/contact"
+  resources :users
+  resources :products
+  resources :store
+  resources :checkout
+  resources :orders
+  resources :admin
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

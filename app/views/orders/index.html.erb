@@ -22,7 +22,13 @@
     <td><%= order.zipcode %></td>
     <td><%= order.country %></td>
     <td><%= order.email %></td>
-    <td><%= order.shipped %></td>
+    <td align="center">
+      <% if order.shipped %>
+      <%= image_tag("shippedIcon.png", :width => 25, :height => 25) %>
+      <% else %>
+      <%= image_tag("notShippedIcon.png", :width => 25, :height => 25) %>
+      <% end %>
+    </td>
  </tr> 
  </table>
   <div class="items" style="display: none;">

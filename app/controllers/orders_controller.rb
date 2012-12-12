@@ -36,6 +36,7 @@ class OrdersController < ApplicationController
       format.json
     end
   end
+
   protected
     def authorize
       if !user_signed_in?
