@@ -1,13 +1,23 @@
 HeatherShirts::Application.routes.draw do
+  get "users/index"
   devise_for :users
 
-  get "admin/dashboard/index"
+  resources :users
+  resources :products
+  resources :store
+  resources :checkout
+  resources :orders
+  resources :admin
+
 
   get "checkout/payment"
   post "checkout/payment"
   get "checkout/s1_shipping"
   post "checkout/s1_shipping"
   match '/' => 'static_pages#home'
+  match '/users/show/:id', :to => 'users#show', :as => :user
+  match '/users/:id/edit', :to => 'users#edit', :as => :user_path
+  match '/users/:id/update', :to => 'users#update'
 
   post "orders/destroy"
   post "orders/show"
@@ -19,11 +29,6 @@ HeatherShirts::Application.routes.draw do
   get "54.245.118.77/store"
   get "checkout/index"
 
-  resources :products
-  resources :store
-  resources :checkout
-  resources :orders
-  resources :admin
 
   root :to => "static_pages#home"
 

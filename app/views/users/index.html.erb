@@ -1,0 +1,17 @@
+<h1>Users#index</h1>
+<table border='1px solid black' width="100%">
+<th>User</th>
+<th>Role</th>
+<th>Last sign in time</th>
+<th>Last sign in ip</th>
+<th>Sign in count</th>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= link_to user.email, user %></td>
+    <td><%= user.role %></td>
+    <td><%= user.last_sign_in_at %></td>
+    <td><%= user.last_sign_in_ip %></td>
+    <td><%= user.sign_in_count %></td>
+  </tr>
+<% end %>
+</table>

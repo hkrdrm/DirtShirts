@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Role:</b>
+  <%= @user.role %>
+</p>
+
+<p>
+  <b>Sign in count:</b>
+  <%= @user.sign_in_count %>
+</p>
+
+<p>
+  <b>Last sign in:</b>
+  <%= @user.last_sign_in_at %>
+</p>
+
+<p>
+  <b>Last sign in ip:</b>
+  <%= @user.last_sign_in_ip %>
+</p>
+
+<%= link_to 'Edit', "/users/"+@user.id+"/edit" %> |
+<%= link_to 'Back', "/users/index" %>
