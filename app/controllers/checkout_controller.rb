@@ -1,13 +1,21 @@
 class CheckoutController < ApplicationController
 
+  before_filter :authorize
+
+  def s1_shipping
+  end
+
+  def s2_stripe
+  end
+
   def save_order
     @cart = find_cart
     @order = Order.new(params[:order])
-    @order.username = current_user.email
+    @order.email = current_user.email
     @order.add_line_items_from_cart(@cart)
     if @order.save
       session[:cart] = nil
-      redirect_to("/static_pages/home")
+      redirect_to("/checkout/s2_stripe")
     else
       #render :action => :checkout
     end
@@ -54,4 +62,10 @@ private
       end
       session[:cart]
     end
+protected
+  def authorize
+    if !user_signed_in? || current_user.role != 'Admin'
+      redirect_to "/static_pages/home"
+    end
+  end
 end

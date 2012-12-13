@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
 
   protected
     def authorize
-      if !user_signed_in?
+      if !user_signed_in? || current_user.role != 'Admin'
         redirect_to "/static_pages/home"
       end
     end

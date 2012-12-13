@@ -14,6 +14,7 @@ gem 'will_paginate'
 gem 'less-rails-bootstrap'
 gem 'bootstrap-will_paginate'
 gem 'devise'
+gem 'stripe'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
