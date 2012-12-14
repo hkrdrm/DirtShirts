@@ -12,6 +12,7 @@ HeatherShirts::Application.routes.draw do
   post "checkout/s1_shipping"
   get "checkout/s2_stripe"
   post "checkout/s2_stripe"
+  post "checkout/process_card"
   match '/' => 'static_pages#home'
   match '/users/show/:id', :to => 'users#show', :as => :user
   match '/users/:id/edit', :to => 'users#edit', :as => :user_path

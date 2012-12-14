@@ -1,4 +1,5 @@
-<form action="" method="POST" id="payment-form">
+<b>Total Price:</b> <%= number_to_currency(@order.total_pr) %>
+<form action="process_card" method="POST" id="payment-form">
   <div class="form-row">
     <label>Card Number</label>
     <input type="text" size="20" autocomplete="off" class="card-number"/>

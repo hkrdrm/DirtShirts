@@ -1,24 +1,37 @@
 class CheckoutController < ApplicationController
 
-  before_filter :authorize
+  #before_filter :authorize
 
   def s1_shipping
   end
 
   def s2_stripe
+    @order = session[:order]
+  end
+
+  def process_card
+    @order = session[:order]
+    Stripe.api_key = "sk_test_ApGE3OaCO03L8JPnPNmhGWSC"
+
+    token = params[:stripeToken]
+    cents = (@order.total_pr * 100).to_i
+    charge = Stripe::Charge.create(
+      :amount => cents, # amount in cents
+      :currency => "usd",
+      :card => token,
+      :description => "someuser@example.com"
+    )
+    @order.save
+    redirect_to '/static_pages/contact'
   end
 
   def save_order
     @cart = find_cart
     @order = Order.new(params[:order])
-    @order.email = current_user.email
     @order.add_line_items_from_cart(@cart)
-    if @order.save
-      session[:cart] = nil
-      redirect_to("/checkout/s2_stripe")
-    else
-      #render :action => :checkout
-    end
+    session[:cart] = nil
+    session[:order] = @order
+    redirect_to("/checkout/s2_stripe")
   end
 
   def payment
