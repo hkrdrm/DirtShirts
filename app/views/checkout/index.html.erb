@@ -1,5 +1,11 @@
-<%= render 'checkout/paymentNavBar' %>
+<h1>Checkout</h1>
+<% if !user_signed_in? %>
 <p>
-  Optional Account <%= link_to "Sign up", user_registration %>
-  to manage and track your orders online.
+  <%= link_to "Sign up", '/users/sign_up' %> for an account and 
+  <%= link_to "Sign in", '/users/sign_in' %> before checking out.
 </p>
+<% end %>
+ <%= render(:partial => "store/cart") %> 
+<% if user_signed_in? %>
+<%= button_to "Continue to Checkout", "/checkout/s1_shipping", :method => "get" %>
+<% end %>
