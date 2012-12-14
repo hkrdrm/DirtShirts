@@ -6,7 +6,10 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0-alpha.1/jquery.mobile-1.2.0-alpha.1.min.css" />
+  <script src="http://code.jquery.com/mobile/1.2.0-alpha.1/jquery.mobile-1.2.0-alpha.1.min.js"></script>
   <script type="text/javascript" src="https://js.stripe.com/v1/"></script>
+  <script type="text/javascript" src="dataTables.numericComma.js"></script>
   <script type="text/javascript">
     // this identifies your website in the createToken call below
     Stripe.setPublishableKey('pk_test_NH9lqc3lW9dqcCd37Gd0yrTM');

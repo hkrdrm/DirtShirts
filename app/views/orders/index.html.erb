@@ -1,58 +1,110 @@
+<script>
+$(document).ready(function(){
+	$('#orderTable').dataTable({
+	  "aaSorting" : [[ 4, "desc" ]],
+	  "auColumns" : [
+	    null,
+	    null,
+	    null,
+	    null,
+	    null,
+	    { "sType": "html" } 
+	  ]
+	});
+});
+jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+  "alt-string-pre": function ( a ) {
+    return a.match(/alt="(.*?)"/)[1].toLowerCase();
+  },		     
+  "alt-string-asc": function( a, b ) {
+    return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+  },	      
+  "alt-string-desc": function(a,b) {
+    return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+  }
+});
+
+</script>
+
+
+  <div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
+  </div>
+
+
 <h1>Orders</h1>
 <p> Click Rows for more detailed information. </p>
-<% @orders.each do |order| %>
-<div class="name" style="border: 1px solid black;">
-  <table width='100%' border='1px solid black'>
-  <th width='10%'>Name:</th>
-  <th width='10%'>Address:</th>
-  <th width='10%'>Address2:</th>
-  <th width='10%'>City:</th>
-  <th width='10%'>State:</th>
-  <th width='10%'>Zipcode:</th>
-  <th width='10%'>Country:</th>
-  <th width='10%'>Email:</th>
-  <th width='10%'>Shipped:</th>
+<div style="border: 1px solid black;">
+  <table id='orderTable' width='100%' border='1px solid black'>
+  <thead>
+    <th>Info</th>
+    <th>Name</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zipcode</th>
+    <th>Email</th>
+    <th>Shipped</th>
+  </thead>
 
+  <tbody>
+  <% @orders.each do |order| %>
   <tr>
-    <td><%= link_to order.name, order %></td>
-    <td><%= order.address %></td>
-    <td><%= order.address2 %></td>
+    <td>
+      <a class='sName' href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window"><%= image_tag("infoIcon.jpg", :width => 25, :height => 25) %></a>
+      <div style="display: none;">
+      <div class='hData' style="position: absolute; top: 50%; height:10em; margin-top:-5em; color: lightblue;">
+        <%= order.email %><br>
+	<br>
+        <%= order.name %><br>
+        <%= order.address %><br>
+        <% if order.address2 %>
+	  <%= order.address2 %>
+	<% end %>
+        <%= order.city %>, <%= order.state %> <%= order.zipcode %><br>
+        <%= order.country %>
+      </div>
+      </div>
+    </td>
+    <td>
+      <%= link_to order.name, order %>
+    </td>
     <td><%= order.city %></td>
     <td><%= order.state %></td>
     <td><%= order.zipcode %></td>
-    <td><%= order.country %></td>
     <td><%= order.email %></td>
     <td align="center">
       <% if order.shipped %>
-      <%= image_tag("shippedIcon.png", :width => 25, :height => 25) %>
+        <%= image_tag("shippedIcon.png", :width => 25, :height => 25, :alt => 1) %><div style="display: none;">1</div>
       <% else %>
-      <%= image_tag("notShippedIcon.png", :width => 25, :height => 25) %>
+        <%= image_tag("notShippedIcon.png", :width => 25, :height => 25, :alt => 2) %><div style="display: none;">2</div>
       <% end %>
     </td>
- </tr> 
- </table>
-  <div class="items" style="display: none;">
-  <table width='100%' border='1px solid black'>
-  <th width='30%'>Product</th>
-  <th width='50%'>Quantity</th>
-  <th width='20%'>Total Price</th>
-  <% order.line_items.each do |li| %>
-  <tr>
-    <td><%= li.title %></td>
-    <td><%= li.quantity %></td>
-    <td align='right'><%= number_to_currency(li.total_price) %></td>
-  </tr>
+  </tr> 
   <% end %>
-  <tr>
-    <td colspan='2'>Order Total Price</td>
-    <td align='right'><b><%= number_to_currency(order.total_pr) %></b></td>
-  </tr>
-  </table>
-  </div>
+ </tbody>
+ </table>
 </div>
 <br>
-<% end %>
   <script>
+
+    $(".sName").click(function(){
+      var div$ = $("#popupPanel");
+      var html = $('<div>').append($(this).next().children().clone()).html();
+      div$.empty();
+      div$.append(html);
+      div$.get(0);
+    });
+    $( "#popupPanel" ).on({
+      popupbeforeposition: function() {
+      var h = $( window ).height();
+
+      $( "#popupPanel" ).css( "height", h );		           }
+    });
+
+    $('.datatable').dataTable({
+      "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+      "sPaginationType": "bootstrap"
+    });
+
     $('div.name').click(function(){
       if($(this).children('div.items').is(":hidden")){
         $(this).children('div.items').slideDown("slow");
