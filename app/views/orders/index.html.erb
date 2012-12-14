@@ -1,30 +1,3 @@
-<script>
-$(document).ready(function(){
-	$('#orderTable').dataTable({
-	  "aaSorting" : [[ 4, "desc" ]],
-	  "auColumns" : [
-	    null,
-	    null,
-	    null,
-	    null,
-	    null,
-	    { "sType": "html" } 
-	  ]
-	});
-});
-jQuery.extend( jQuery.fn.dataTableExt.oSort, {
-  "alt-string-pre": function ( a ) {
-    return a.match(/alt="(.*?)"/)[1].toLowerCase();
-  },		     
-  "alt-string-asc": function( a, b ) {
-    return ((a < b) ? -1 : ((a > b) ? 1 : 0));
-  },	      
-  "alt-string-desc": function(a,b) {
-    return ((a < b) ? 1 : ((a > b) ? -1 : 0));
-  }
-});
-
-</script>
 
 
   <div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
@@ -51,8 +24,8 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
     <td>
       <a class='sName' href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window"><%= image_tag("infoIcon.jpg", :width => 25, :height => 25) %></a>
       <div style="display: none;">
-      <div class='hData' style="position: absolute; top: 50%; height:10em; margin-top:-5em; color: lightblue;">
-        <%= order.email %><br>
+      <div id='panelDiv' class='hData' style="position: absolute; text-align: center; width: 100%; top: 50%; height:10em; margin-top:-5em; color: lightblue;">
+        <%= link_to order.email, order %><br>
 	<br>
         <%= order.name %><br>
         <%= order.address %><br>
@@ -61,6 +34,34 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
 	<% end %>
         <%= order.city %>, <%= order.state %> <%= order.zipcode %><br>
         <%= order.country %>
+
+        <br>
+
+        <table border='1px solid black' width='100%'>
+        <th>Photo:</th>
+        <th>Product:</th>
+        <th>Quantity:</th>
+        <th>Price:</th>
+        <% order.line_items.each do |li| %>
+        <tr>
+          <td><img src='<%= li.photo %>' width='25px' height='25px' /></td>
+          <td><%= li.title %></td>
+          <td><%= li.quantity %></td>
+          <td><%= li.total_price %></td>
+        </tr>
+        <% end %>
+        </table>
+
+        <p>
+          <b>Ship Order:</b>
+          <%= link_to image_tag("ship.png", :width => 50, :height => 50), "/orders/"+order.id+"/ship", data: { confirm: 'Are you sure?' } %>
+        </p>
+
+	<p>
+	  <b>Delete Order:</b>
+	  <%= link_to image_tag("deleteIcon.png", :width => 50, :height => 50), order, method: :delete, data: { confirm: 'Are you sure?' } %>
+	</p>
+
       </div>
       </div>
     </td>
@@ -85,6 +86,24 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
 </div>
 <br>
   <script>
+$(document).ready(function(){
+	$('#orderTable').dataTable({
+	  "bRetrieve" : true,
+	  "bStateSave": true,
+	  "sPaginationType": "full_numbers",
+	  "aaSorting" : [[ 4, "desc" ]],
+	  "auColumns" : [
+	    null,
+	    null,
+	    null,
+	    null,
+	    null,
+	    null,
+	    { "sType": "html" } 
+	  ]
+	});
+});
+
 
     $(".sName").click(function(){
       var div$ = $("#popupPanel");
@@ -96,8 +115,9 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
     $( "#popupPanel" ).on({
       popupbeforeposition: function() {
       var h = $( window ).height();
-
-      $( "#popupPanel" ).css( "height", h );		           }
+      var w = $( window ).width();
+      $( "#popupPanel" ).css( "width", w/4);
+      $( "#popupPanel" ).css( "height", h );}
     });
 
     $('.datatable').dataTable({
@@ -105,12 +125,5 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
       "sPaginationType": "bootstrap"
     });
 
-    $('div.name').click(function(){
-      if($(this).children('div.items').is(":hidden")){
-        $(this).children('div.items').slideDown("slow");
-      }
-      else{
-	$(this).children('div.items').hide();
-      }
-    });
+
   </script>

@@ -31,10 +31,7 @@ class OrdersController < ApplicationController
     @order.shipped = true
     @order.save
 
-    respond_to do |format|
-      format.html { redirect_to '/orders' }
-      format.json
-    end
+    redirect_to '/orders/'+@order.id
   end
 
   protected
