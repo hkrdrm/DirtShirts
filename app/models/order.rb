@@ -14,6 +14,14 @@ class Order
   field :shipped, :type => Boolean, default: false
   field :username, :type => String
 
+  def total_pr
+    sum = 0
+    line_items.each do |li|
+      sum += li.total_price
+    end
+    sum
+  end
+
   def add_line_items_from_cart(cart)
     cart.items.each do |item|
       li = LineItem.from_cart_item(item)

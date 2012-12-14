@@ -40,9 +40,13 @@
   <tr>
     <td><%= li.title %></td>
     <td><%= li.quantity %></td>
-    <td><%= li.total_price %></td>
+    <td align='right'><%= number_to_currency(li.total_price) %></td>
   </tr>
   <% end %>
+  <tr>
+    <td colspan='2'>Order Total Price</td>
+    <td align='right'><b><%= number_to_currency(order.total_pr) %></b></td>
+  </tr>
   </table>
   </div>
 </div>
