@@ -10,6 +10,6 @@
     <td><%= number_to_currency(@cart.total_price) %></td>
   </tr>
 </table>
-<br>
-<%= button_to "Empty cart", :controller => "store", :action => :empty_cart %>
+<%= button_to "Checkout", :url => "/checkout/payment" %>
+<%= button_to "Empty cart", :action => :empty_cart %>
 
