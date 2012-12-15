@@ -9,6 +9,10 @@ class OrdersController < ApplicationController
     end
   end
 
+  def data_source
+    @orders = Order.all
+  end
+
   def show
     @order = Order.find(params[:id])
 
@@ -31,10 +35,7 @@ class OrdersController < ApplicationController
     @order.shipped = true
     @order.save
 
-    respond_to do |format|
-      format.html { redirect_to '/orders' }
-      format.json
-    end
+    redirect_to '/orders'
   end
 
   protected
