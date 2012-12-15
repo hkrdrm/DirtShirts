@@ -23,6 +23,7 @@ HeatherShirts::Application.routes.draw do
   post "orders/ship"
   match "/orders/:id/ship", :to => 'orders#ship', :as => :ship_path
   post "orders/:id/ship"
+  get "orders/data_source"
   post "checkout/save_order"
   get "store/index"
   get "54.245.118.77/store"

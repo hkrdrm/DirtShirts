@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 # A comment
 
+gem 'libv8', '~> 3.11.8'
 gem 'therubyracer'
 gem 'rails', '3.2.8'
 gem 'rake', '10.0.2'
@@ -35,7 +36,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
