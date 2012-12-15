@@ -47,6 +47,7 @@ class CheckoutController < ApplicationController
     end
   end
   def index
+    @cart = find_cart
     @order = Order.new
     respond_to do |format|
       format.html
