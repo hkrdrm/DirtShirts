@@ -26,7 +26,6 @@
 	background-image:         linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/);
 }
 .ui-bar-a,
-.ui-bar-a input,
 .ui-bar-a select,
 .ui-bar-a textarea,
 .ui-bar-a button {
@@ -67,7 +66,6 @@
 	border-width: 0;
 }
 .ui-body-a,
-.ui-body-a input,
 .ui-body-a select,
 .ui-body-a textarea,
 .ui-body-a button {
@@ -164,7 +162,6 @@
 	background-image:         linear-gradient( #6facd5 /*{b-bar-background-start}*/, #497bae /*{b-bar-background-end}*/);
 }
 .ui-bar-b,
-.ui-bar-b input,
 .ui-bar-b select,
 .ui-bar-b textarea,
 .ui-bar-b button {
@@ -205,7 +202,6 @@
 	border-width: 0;
 }
 .ui-body-b,
-.ui-body-b input,
 .ui-body-b select,
 .ui-body-b textarea,
 .ui-body-b button {
@@ -318,7 +314,6 @@
 	color: #2489ce /*{c-bar-link-active}*/;
 }
 .ui-bar-c,
-.ui-bar-c input,
 .ui-bar-c select,
 .ui-bar-c textarea,
 .ui-bar-c button {
@@ -342,7 +337,6 @@
 	border-width: 0;
 }
 .ui-body-c,
-.ui-body-c input,
 .ui-body-c select,
 .ui-body-c textarea,
 .ui-body-c button {
@@ -439,7 +433,6 @@
 	background-image:         linear-gradient( #ddd /*{d-bar-background-start}*/, #bbb /*{d-bar-background-end}*/);
 }
 .ui-bar-d,
-.ui-bar-d input,
 .ui-bar-d select,
 .ui-bar-d textarea,
 .ui-bar-d button {
@@ -479,7 +472,6 @@
 	border-width: 0;
 }
 .ui-body-d,
-.ui-body-d input,
 .ui-body-d select,
 .ui-body-d textarea,
 .ui-body-d button {
@@ -577,7 +569,6 @@
 	background-image:         linear-gradient( #fceda7 /*{e-bar-background-start}*/, #fbef7e /*{e-bar-background-end}*/);
 }
 .ui-bar-e,
-.ui-bar-e input,
 .ui-bar-e select,
 .ui-bar-e textarea,
 .ui-bar-e button {
@@ -617,7 +608,6 @@
 	border-width: 0;
 }
 .ui-body-e,
-.ui-body-e input,
 .ui-body-e select,
 .ui-body-e textarea,
 .ui-body-e button {
@@ -1082,12 +1072,7 @@ a.ui-link-inherit {
 	-webkit-box-shadow: inset 0px 0px 3px 	#387bbe /*{global-active-background-color}*/, 0px 0px 9px 		#387bbe /*{global-active-background-color}*/;
 	box-shadow: inset 0px 0px 3px 			#387bbe /*{global-active-background-color}*/, 0px 0px 9px 		#387bbe /*{global-active-background-color}*/;
 }
-.ui-input-text.ui-focus,
-.ui-input-search.ui-focus {
-	-moz-box-shadow: 0px 0px 12px 			#387bbe /*{global-active-background-color}*/;
-	-webkit-box-shadow: 0px 0px 12px 		#387bbe /*{global-active-background-color}*/;
-	box-shadow: 0px 0px 12px 					#387bbe /*{global-active-background-color}*/;	
-}
+
 /* unset box shadow in browsers that don't do it right
 -----------------------------------------------------------------------------------------------------------*/
 .ui-mobile-nosupport-boxshadow * {
@@ -1161,7 +1146,7 @@ div.ui-mobile-viewport { overflow-x: hidden; }
 /* non-js content hiding */
 .ui-nojs { position: absolute; left: -9999px; }
 /* accessible content hiding */
-.ui-hide-label label.ui-input-text, .ui-hide-label label.ui-select, .ui-hide-label label.ui-slider, .ui-hide-label label.ui-submit, .ui-hide-label .ui-controlgroup-label,
+.ui-hide-label .ui-hide-label label.ui-select, .ui-hide-label label.ui-slider, .ui-hide-label label.ui-submit, .ui-hide-label .ui-controlgroup-label,
 .ui-hidden-accessible { position: absolute !important; left: -9999px; clip: rect(1px 1px 1px 1px); clip: rect(1px,1px,1px,1px); }
 /* Transitions originally inspired by those from jQtouch, nice work, folks */
 .ui-mobile-viewport-transitioning,
@@ -1805,10 +1790,9 @@ div.ui-mobile-viewport { overflow-x: hidden; }
 .ui-navbar li .ui-btn-icon-bottom .ui-btn-inner { padding-bottom: 30px; }
 .ui-btn { display: block; text-align: center; cursor:pointer; position: relative; margin: .5em 0; padding: 0; }
 .ui-mini { margin-top: .25em; margin-bottom: .25em; }
-.ui-btn-left, .ui-btn-right, .ui-input-clear, .ui-btn-inline,
+.ui-btn-left, .ui-btn-right, .ui-btn-inline,
 .ui-grid-a .ui-btn, .ui-grid-b .ui-btn, .ui-grid-c .ui-btn, .ui-grid-d .ui-btn, .ui-grid-e .ui-btn, .ui-grid-solo .ui-btn { margin-right: 5px; margin-left: 5px; }
 .ui-btn-inner { font-size: 16px; padding: .6em 20px; min-width: .75em; display: block; position: relative; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; zoom: 1; }
-.ui-btn input, .ui-btn button { z-index: 2; }
 .ui-btn-left, .ui-btn-right, .ui-btn-inline { display: inline-block; vertical-align: middle; }
 .ui-mobile .ui-btn-left, .ui-mobile .ui-btn-right { margin: 0; } /* .ui-mobile to increase specificity level */
 .ui-btn-block { display: block; }
@@ -2077,22 +2061,7 @@ label.ui-submit { font-size: 16px; line-height: 1.4; font-weight: normal; margin
 .ui-popup iframe {
 	vertical-align: middle;
 }
-@media all and (min-width: 450px){
-	.ui-popup .ui-field-contain label.ui-submit,
-	.ui-popup .ui-field-contain .ui-controlgroup-label,
-	.ui-popup .ui-field-contain label.ui-select,
-	.ui-popup .ui-field-contain label.ui-input-text {
-		font-size: 16px; line-height: 1.4; display: block; font-weight: normal; margin: 0 0 .3em;
-	}
-	.ui-popup .ui-field-contain .ui-btn.ui-submit,
-	.ui-popup .ui-field-contain .ui-controlgroup-controls,
-	.ui-popup .ui-field-contain .ui-select,
-	.ui-popup .ui-field-contain input.ui-input-text,
-	.ui-popup .ui-field-contain textarea.ui-input-text,
-	.ui-popup .ui-field-contain .ui-input-search {
-		width: 100%; display: block;
-	}
-}
+
 .ui-popup > .ui-btn-left,
 .ui-popup > .ui-btn-right {
 	position: absolute; 
@@ -2158,7 +2127,6 @@ label.ui-submit { font-size: 16px; line-height: 1.4; font-weight: normal; margin
 .ui-checkbox .ui-btn-icon-right .ui-icon, .ui-radio .ui-btn-icon-right .ui-icon { right: 15px; }
 .ui-checkbox .ui-mini.ui-btn-icon-right .ui-icon, .ui-radio .ui-mini.ui-btn-icon-right .ui-icon { right: 9px; }
 /* input, label positioning */
-.ui-checkbox input,.ui-radio input { position:absolute; left:20px; top:50%; width: 10px; height: 10px; margin:-5px 0 0 0; outline: 0 !important; z-index: 1; }
 .ui-field-contain, fieldset.ui-field-contain { padding: .8em 0; margin: 0; border-width: 0 0 1px 0; overflow: visible; }
 .ui-field-contain:last-child { border-bottom-width: 0; }
 .ui-field-contain { max-width: 100%; } /* This prevents horizontal scrollbar in IE7 */
@@ -2208,33 +2176,8 @@ label.ui-select { font-size: 16px; line-height: 1.4; font-weight: normal; margin
 }
 /* when no placeholder is defined in a multiple select, the header height doesn't even extend past the close button.  this shim's content in there */
 .ui-selectmenu .ui-header h1:after { content: '.'; visibility: hidden; }
-label.ui-input-text { font-size: 16px; line-height: 1.4; display: block; font-weight: normal; margin: 0 0 .3em; }
-input.ui-input-text, textarea.ui-input-text { background-image: none; padding: .4em; margin: .5em 0; line-height: 1.4; font-size: 16px; display: block; width: 100%; outline: 0; }
-input.ui-input-text.ui-mini, textarea.ui-input-text.ui-mini { margin: .25em 0; }
-.ui-field-contain input.ui-input-text, .ui-field-contain textarea.ui-input-text { margin: 0; }
-input.ui-input-text, textarea.ui-input-text, .ui-input-search { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; }
-input.ui-input-text { -webkit-appearance: none; }
-textarea.ui-input-text { height: 50px; -webkit-transition: height 200ms linear; -moz-transition: height 200ms linear; -o-transition: height 200ms linear; transition: height 200ms linear; }
-.ui-input-search { padding: 0 30px; margin: .5em 0; background-image: none; position: relative; }
-.ui-input-search.ui-mini { margin: .25em 0; }
-.ui-field-contain .ui-input-search { margin: 0; }
-.ui-icon-searchfield:after { position: absolute; left: 7px; top: 50%; margin-top: -9px; content: ""; width: 18px; height: 18px; opacity: .5; }
-.ui-input-search input.ui-input-text { border: none; width: 98%; padding: .4em 0; margin: 0; display: block; background: transparent none; outline: 0 !important; }
-.ui-input-search .ui-input-clear { position: absolute; right: 0; top: 50%; margin-top: -13px; }
-.ui-mini .ui-input-clear { right: -3px; }
-.ui-input-search .ui-input-clear-hidden { display: none; }
-input.ui-mini, .ui-mini input, textarea.ui-mini { font-size: 14px; }
 textarea.ui-mini { height: 45px; }
-@media all and (min-width: 450px){
-	.ui-field-contain label.ui-input-text  { vertical-align: top; display: inline-block; width: 20%; margin: 0 2% 0 0 }
-	.ui-field-contain input.ui-input-text, 
-	.ui-field-contain textarea.ui-input-text, 
-	.ui-field-contain .ui-input-search { width: 78%; display: inline-block; } 
-	.ui-hide-label input.ui-input-text, 
-	.ui-hide-label textarea.ui-input-text, 
-	.ui-hide-label .ui-input-search { width: 100%; }
-	.ui-input-search input.ui-input-text { width: 98%; /*echos rule from above*/ }
-}
+
 .ui-listview { margin: 0; }
 ol.ui-listview, ol.ui-listview .ui-li-divider { counter-reset: listnumbering; }
 .ui-content .ui-listview { margin: -15px; }
@@ -2289,21 +2232,12 @@ ol.ui-listview .ui-li-jsnumbering:before { content: "" !important; } /* to avoid
 .ui-collapsible-content .ui-listview-filter { margin: -10px -15px 10px -15px; border-bottom: inherit; }
 .ui-listview-filter-inset { margin: -15px -5px; background: transparent; }
 .ui-collapsible-content .ui-listview-filter-inset { margin: -5px; border-bottom-width: 0; }
-.ui-listview-filter .ui-input-search { margin: 5px; width: auto; display: block; }
 .ui-li.ui-screen-hidden{ display:none; }
 /* Odd iPad positioning issue. */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     .ui-li .ui-btn-text { overflow:  visible; }
 }
 label.ui-slider { font-size: 16px; line-height: 1.4; font-weight: normal; margin: 0 0 .3em; display: block; }
-input.ui-slider-input,
-.ui-field-contain input.ui-slider-input { display: inline-block; width: 50px; background-image: none; padding: .4em; margin: .5em 0; line-height: 1.4; font-size: 16px; outline: 0; }
-input.ui-slider-input.ui-mini,
-.ui-field-contain input.ui-slider-input.ui-mini { width: 45px; margin: .25em 0; font-size: 14px; }
-.ui-field-contain input.ui-slider-input { margin: 0; }
-input.ui-slider-input, .ui-field-contain input.ui-slider-input { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; -ms-box-sizing: content-box; box-sizing: content-box; }
-/* Fixes input fields being to small on Safari/Mac because of the up and down arrows. */
-.ui-slider-input::-webkit-outer-spin-button { margin: 0; }
 select.ui-slider-switch { display: none; }
 div.ui-slider { position: relative; display: inline-block; overflow: visible; height: 15px; padding: 0; margin: 0 2% 0 20px; top: 4px; width: 65%; }
 div.ui-slider-mini { height: 12px; margin-left: 10px; top: 2px; }
