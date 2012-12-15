@@ -1,9 +1,31 @@
 @import "bootstrap";
-body { padding-top: 60px; }
-a{ text-shadow: darkgreen 0.08em 0.08em 0.2em; }
+body { 
+  padding-top: 60px;
+  //background: url('mangroveDiver.jpg');
+}
+a{
+  text-shadow: darkgreen 0.08em 0.08em 0.2em;
+}
+.hero-unit td a {
+  text-shadow: black 0.08em 0.08em 0.2em;
+}
+.hero-unit td:hover a:hover {
+  color: red;
+  background-color: rgba(0,0,0,0);
+}
+#orderTable td a {
+  text-decoration: none;
+  font-family:"Times New Roman",Georgia,Serif;
+  text-shadow: white 0.08em 0.08em 0.2em;
+}
 table a{ text-shadow: lightgreen 0.1em 0.1em 0.2em; }
 ul a{ text-shadow: lightgreen 0.1em 0.1em 0.2em; }
 .navbar-inner li:hover a:hover { color: red; }
+.navbar-inner li a { color: darkblue; }
+
+.hero-unit{
+  background-color: rgba(150,150,150,.50);
+}
 
 
 #popupPanel-popup {

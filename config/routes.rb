@@ -18,7 +18,7 @@ HeatherShirts::Application.routes.draw do
   match '/users/:id/edit', :to => 'users#edit', :as => :user_path
   match '/users/:id/update', :to => 'users#update'
 
-  post "orders/destroy"
+  match "orders/:id/destroy", :to => 'orders#destroy', :as => :order_destroy
   post "orders/show"
   post "orders/ship"
   match "/orders/:id/ship", :to => 'orders#ship', :as => :ship_path
