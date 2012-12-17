@@ -1,7 +1,5 @@
 
 
-  <div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
-  </div>
 
 
 <h1>Orders</h1>
@@ -22,9 +20,9 @@
   <% @orders.each do |order| %>
   <tr>
     <td>
-      <a class='sName' href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window"><%= image_tag("infoIcon.jpg", :width => 25, :height => 25) %></a>
+      <a class='sName'><%= image_tag("infoIcon.jpg", :width => 25, :height => 25) %></a>
       <div style="display: none;">
-      <div id='panelDiv' class='hData' style="position: absolute; text-align: center; width: 100%; top: 50%; height:10em; margin-top:-5em; color: lightblue;">
+      <div class='panelDiv' class='hData'>
         <%= link_to order.email, order %><br>
 	<br>
         <%= order.name %><br>
@@ -52,15 +50,15 @@
         <% end %>
         </table>
 
-        <p>
-          <b>Ship Order:</b>
-          <%= link_to image_tag("ship.png", :width => 50, :height => 50), "/orders/"+order.id+"/ship", data: { confirm: 'Are you sure?' } %>
-        </p>
+	  <div style="left: 50px; position: absolute;">
+            <b>Ship Order</b>
+            <%= link_to image_tag("ship.png", :width => 50, :height => 50), "/orders/"+order.id+"/ship", data: { confirm: 'Are you sure?' } %>
+	  </div>
 
-	<p>
-	  <b>Delete Order:</b>
-	  <%= link_to image_tag("deleteIcon.png", :width => 50, :height => 50), "/orders/"+order.id+"/destroy", method: :delete, data: { confirm: 'Are you sure?' } %>
-	</p>
+	  <div style="right: 50px; position: absolute;">
+	    <%= link_to image_tag("deleteIcon.png", :width => 50, :height => 50), "/orders/"+order.id+"/destroy", method: :delete, data: { confirm: 'Are you sure?' } %>
+	    <b>Delete Order</b>
+	  </div>
 
       </div>
       </div>
@@ -106,24 +104,28 @@ $(document).ready(function(){
 
 
     $(".sName").click(function(){
+      $("#popupPanel").fadeIn("slow");
       var div$ = $("#popupPanel");
       var html = $('<div>').append($(this).next().children().clone()).html();
       div$.empty();
       div$.append(html);
       div$.get(0);
+      //var h = $( window ).height();
+      //var w = $( window ).width();
+      //$( "#popupPanel" ).css( "width", w/4);
+      //$( "#popupPanel" ).css( "height", h );}
     });
-    $( "#popupPanel" ).on({
-      popupbeforeposition: function() {
-      var h = $( window ).height();
-      var w = $( window ).width();
-      $( "#popupPanel" ).css( "width", w/4);
-      $( "#popupPanel" ).css( "height", h );}
-    });
+   // $(".sName").click({function() {
+  //  });
 
     $('.datatable').dataTable({
       "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
       "sPaginationType": "bootstrap"
     });
 
+    
+  $("#popupPanel").click(function(){
+    $("#popupPanel").fadeOut("slow");
+  });
 
   </script>
