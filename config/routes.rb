@@ -39,7 +39,6 @@ HeatherShirts::Application.routes.draw do
   post "store/checkout"
   post "checkout/empty_cart"
   get "static_pages/contact"
-  resources :users
   resources :products
   resources :store
   resources :checkout

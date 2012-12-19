@@ -3,7 +3,7 @@
 
 
 <h1>Orders</h1>
-<p> Click Rows for more detailed information. </p>
+<p> Click info icon for more detailed information. </p>
 <div style="border: 1px solid black;">
   <table id='orderTable' width='100%' border='1px solid black'>
   <thead>
@@ -11,7 +11,6 @@
     <th>Name</th>
     <th>City</th>
     <th>State</th>
-    <th>Zipcode</th>
     <th>Email</th>
     <th>Shipped</th>
   </thead>
@@ -68,7 +67,6 @@
     </td>
     <td><%= order.city %></td>
     <td><%= order.state %></td>
-    <td><%= order.zipcode %></td>
     <td><%= order.email %></td>
     <td align="center">
       <% if order.shipped %>
@@ -86,6 +84,7 @@
   <script>
 $(document).ready(function(){
 	$('#orderTable').dataTable({
+	  "bJQueryUI": true,
 	  "bRetrieve" : true,
 	  "bStateSave": true,
 	  "sPaginationType": "full_numbers",
