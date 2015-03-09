@@ -1,4 +1,4 @@
-environment ENV['RAILS_ENV'] || 'development'
+environment ENV['RAILS_ENV'] || 'production'
 bind 'unix:///tmp/dirtShirts.sock'
 daemonize false
 
