@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # A comment
 
-gem 'libv8', '~> 3.11.8'
+#gem 'libv8', '~> 3.11.8'
 gem 'therubyracer'
 gem 'rails', '3.2.8'
 gem 'rake', '10.0.2'

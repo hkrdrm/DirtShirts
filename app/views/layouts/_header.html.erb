@@ -1,29 +1,62 @@
-<header class="navbar navbar-fixed-top">
 
-  <div class="navbar navbar-inverse">
-  <div class="navbar-inner">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">think {outside} the {box}</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/static_pages/home">Home</a></li>
+            <li><a href="/store/index">Store</a></li>
+            <li><a href="/checkout/index">Checkout</a></li>
+            <li><a href="/static_pages/contact">Contact</a></li>
+
+	          <% if user_signed_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.email %><span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <%= render 'shared/navigation' %>
+              </ul>
+            </li>
+            <% else %>
+              <li><%= link_to('Login', new_user_session_path) %></li>
+            <% end %>
+
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+<!--
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-      <font size="+1"><%= link_to "{out}the{box}", 'http://54.245.118.77' %></font>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        </button>
+          <a class="navbar-brand" href="#"></font>
       <nav>
         <ul class="nav pull-right">
-	  <li><%= link_to "Home",	'/static_pages/home' %></li>
-	  <li><%= link_to "Store",	'/store/index' %></li>
-	  <li><%= link_to "Checkout",	'/checkout/index' %></li>
-	  <li><%= link_to "Contact",	'/static_pages/contact' %></li>
+	        <li><%= link_to "Home",	'/static_pages/home' %></li>
+	        <li><%= link_to "Store",	'/store/index' %></li>
+	        <li><%= link_to "Checkout",	'/checkout/index' %></li>
+	        <li><%= link_to "Contact",	'/static_pages/contact' %></li>
 
-	  <% if user_signed_in? %>
-	    <li class="dropdown">
-	      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= current_user.email %><b class="caret"></b></a>
-	      <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
-	        <%= render 'shared/navigation' %>
+	          <li class="dropdown">
+	            <a class="dropdown-toggle" data-toggle="dropdown" role="button" href="#"><b class="caret"></b></a>
+	              <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
+
+	              </ul>
+	          </li>
+
 	      </ul>
-	    </li>
-	  <% else %>
-	    <li><%= link_to('Login', new_user_session_path) %></li>
-	  <% end %>
-	</ul>
       </nav>
     </div>
   </div>
   </div>
 </header>
+-->
