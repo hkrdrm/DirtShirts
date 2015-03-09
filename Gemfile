@@ -4,8 +4,8 @@ source 'https://rubygems.org'
 
 #gem 'libv8', '~> 3.11.8'
 gem 'therubyracer'
-gem 'rails', '3.2.8'
-gem 'rake', '10.0.2'
+gem 'rails'
+gem 'rake'
 gem 'stripe'
 gem "mongo_mapper"
 gem 'bson_ext'
@@ -15,7 +15,7 @@ gem 'will_paginate'
 gem 'less-rails-bootstrap'
 gem 'bootstrap-will_paginate'
 gem 'devise'
-gem 'stripe'
+gem 'rack', '1.4.5'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
