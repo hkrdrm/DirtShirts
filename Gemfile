@@ -16,6 +16,7 @@ gem 'less-rails-bootstrap'
 gem 'bootstrap-will_paginate'
 gem 'devise'
 gem 'rack', '1.4.5'
+gem 'puma'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
